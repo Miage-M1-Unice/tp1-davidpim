@@ -2,12 +2,12 @@ package files;
 
 import java.io.File;
 
-public class ListContentRepository {
+public class ListContentDirectory {
 
     public File file;
 
 
-    public ListContentRepository(String path) {
+    public ListContentDirectory(String path) {
         this.file = new File(path);
     }
 
@@ -17,7 +17,7 @@ public class ListContentRepository {
     }
 
     public static void main(String[] args){
-        ListContentRepository list1 = new ListContentRepository(".");
+        ListContentDirectory list1 = new ListContentDirectory(".");
 
         String[] files = list1.listString();
 
