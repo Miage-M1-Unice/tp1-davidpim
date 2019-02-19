@@ -1,6 +1,7 @@
 package files;
 
 import java.io.File;
+import java.util.Arrays;
 
 public class ListContentDirectoryOfDirectory {
 
@@ -11,18 +12,27 @@ public class ListContentDirectoryOfDirectory {
     }
 
     public File[] listFile(){
+
         File[] list = file.listFiles();
+
+        for (File file : list) {
+            if (file.isFile()) {
+                System.out.println(file);
+            } else if (file.isDirectory()) {
+                System.out.println(file);
+                this.file = file;
+                listFile();
+            }
+        }
+
         return list;
     }
 
     public static void main(String[] args){
         ListContentDirectoryOfDirectory list1 = new ListContentDirectoryOfDirectory(".");
 
-        File[] files = list1.listFile();
+        list1.listFile();
 
-        for(File file  : files){
-            System.out.println(file);
-        }
     }
 }
 
